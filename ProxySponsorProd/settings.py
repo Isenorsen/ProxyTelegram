@@ -54,9 +54,18 @@ MIDDLEWARE = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    #
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    # ],
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     'rest_framework.renderers.JSONRenderer',
+    # )
+
 }
 
 ROOT_URLCONF = 'ProxySponsorProd.urls'
@@ -114,13 +123,25 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Email settings
+
+EMAIL_HOST = 'smtp.yandex.ru'
+
+EMAIL_PORT = 465
+
+EMAIL_HOST_USER = 'ak@arcanite.ru'
+
+EMAIL_HOST_PASSWORD = 'ASDqwe123'
+
+EMAIL_USE_SSL = True
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 

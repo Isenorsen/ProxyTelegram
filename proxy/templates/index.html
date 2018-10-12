@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Proxy</title>
 </head>
 <body>
-$END$
+<ul>
+{% if proxy %}
+    {% for item in proxy %}
+    <li>{{ item }}</li>
+    {% endfor %}
+{% endif %}
+</ul>
 </body>
 </html>

@@ -7,6 +7,7 @@
 <body>
 
 <form method="post">
+    {% csrf_token %}
   <label for="id_period">Период:</label><input type="text" name="period" maxlength="100" required="" id="id_period">
 <label for="id_nickname">Никнейм канала:</label><input type="text" name="nickname" maxlength="100" required="" id="id_nickname">
 <label for="id_email">Ваш email:</label><input type="email" name="email" required="" id="id_email">
