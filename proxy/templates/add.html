@@ -2,15 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add your proxy</title>
+    <title>Добавить</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+    {% bootstrap_messages %}
 </head>
 <body>
 
-<form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-    {{ form }}
-    <button type="submit">Отправить</button>
-</form>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+  <a class="navbar-brand" href="http://127.0.0.1:8000/">ProxySponsor</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Владельцам каналов
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://127.0.0.1:8000/add/">Добавить свой</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/send/">Создать прокси</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+    </div>
+</nav>
 
+<div class="container">
+<div class="row">
+    <div class="col-lg-11">
+<form method="post" style="margin-top: 3%;" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class="form-group">
+        <label for="id_channel_name">Название канала:</label><input class="form-control" type="text" name="channel_name" maxlength="100" required="" id="id_channel_name" placeholder="Example">
+    </div>
+    <div class="form-group">
+        <label for="id_nickname">Ник канала:</label><input class="form-control" type="text" name="nickname" maxlength="100" required="" id="id_nickname" placeholder="@example">
+    </div>
+    <div class="form-group">
+        <label for="id_description">Описание:</label><textarea class="form-control" name="description" cols="40" rows="10" required="" id="id_description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="id_url">Ссылка:</label><input class="form-control" type="text" name="url" maxlength="200" required="" id="id_url" placeholder="https://t.me/.......">
+    </div>
+    <div class="form-group">
+        <label for="id_avatar">Аватар:</label><input class="form-control-file" type="file" name="avatar" accept="image/*" required="" id="id_avatar">
+    </div>
+            <div class="form-group">
+        <label for="id_ip">IP:</label><input class="form-control" type="text" maxlength="200" id="id_ip">
+    </div>
+        <div class="form-group">
+        <label for="id_port">Port:</label><input class="form-control" type="text" maxlength="200" id="id_port">
+    </div>
+            <div class="form-group">
+        <label for="id_secret">Secret:</label><input class="form-control" type="text" maxlength="200" id="id_secret">
+    </div>
+    <button type="submit" class="btn btn-light" style="margin-bottom: 10%">Отправить</button>
+</form>
+    </div>
+</div>
+</div>
 </body>
 </html>

@@ -2,17 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Создать</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+    {% bootstrap_messages %}
 </head>
 <body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+  <a class="navbar-brand" href="http://127.0.0.1:8000/">ProxySponsor</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Владельцам каналов
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://127.0.0.1:8000/add/">Добавить свой</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/send/">Создать прокси</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+    </div>
+</nav>
 
-<form method="post">
+<div class="container">
+<div class="row">
+    <div class="col-lg-11">
+<form method="post" style="margin-top: 3%;">
     {% csrf_token %}
-  <label for="id_period">Период:</label><input type="text" name="period" maxlength="100" required="" id="id_period">
-<label for="id_nickname">Никнейм канала:</label><input type="text" name="nickname" maxlength="100" required="" id="id_nickname">
-<label for="id_email">Ваш email:</label><input type="email" name="email" required="" id="id_email">
-    <button type="submit">Отправить</button>
+    <div class="form-group">
+    <label for="id_period">Example select</label>
+    <select class="form-control" id="id_period" name="period">
+      <option value="1 месяц">1 месяц: 500р</option>
+      <option value="3 месяца">3 месяца: 1350р (-10%)</option>
+      <option value="6 месяцев">6 месяцев: 2400р (-20%)</option>
+      <option value="12 месяцев">12 месяцев: 4200р (-30%)</option>
+    </select>
+  </div>
+{#  <label for="id_period">Период:</label><input class="form-control" type="text" name="period" maxlength="100" required="" id="id_period">#}
+    <div class="form-group">
+        <label for="id_nickname">Никнейм канала:</label><input class="form-control" type="text" name="nickname" maxlength="100" required="" id="id_nickname" placeholder="@example">
+    </div>
+    <div class="form-group">
+        <label for="id_email">Ваш email:</label><input class="form-control" type="email" name="email" required="" id="id_email" placeholder="name@example.ru">
+    </div>
+    <button type="submit" class="btn btn-light">Отправить</button>
 </form>
-
+    </div>
+</div>
+</div>
 </body>
 </html>

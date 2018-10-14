@@ -3,14 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Proxy</title>
+{% load bootstrap4 %}
+    {% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+    {% bootstrap_messages %}
 </head>
 <body>
-<ul>
-{% if proxy %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+  <a class="navbar-brand" href="http://127.0.0.1:8000/">ProxySponsor</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Владельцам каналов
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://127.0.0.1:8000/add/">Добавить свой</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/send/">Создать прокси</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container" style="margin-top: 3%;">
+<div class="row">
+    {% if proxy %}
     {% for item in proxy %}
-    <li>{{ item }}</li>
+<div class="card" style="width: 18rem; margin-right: 5%; margin-bottom: 5%;">
+{% load static %}
+  <img class="card-img-top" style="width: 100%; height: 55%;"  src="{{ item.avatar }}" alt="Card image ">
+  <div class="card-body">
+    <h4 class="card-title">{{ item }}</h4>
+      <h5 class="card-title">{{ item.nickname }}</h5>
+    <p class="card-text">{{ item.description }}</p>
+    <a href="{{ item.url }}" class="btn btn-primary">Connect</a>
+  </div>
+</div>
     {% endfor %}
 {% endif %}
-</ul>
+</div>
+</div>
 </body>
 </html>

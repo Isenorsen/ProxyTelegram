@@ -19,10 +19,10 @@ def contact_form(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             subject = 'Заявка на прокси'
-            periodForm = form.cleaned_data['period']
+            period = form.cleaned_data['period']
             email = form.cleaned_data['email']
             nicknameForm = form.cleaned_data['nickname']
-            message = 'Email: {} \nПериод: {} \nИмя канала: @{}'.format(email, periodForm, nicknameForm)
+            message = 'Email: {} \nПериод: {} \nИмя канала: @{}'.format(email, period, nicknameForm)
             emailFrom = ['ak@arcanite.ru']
             emailTo = ['ak@arcanite.ru']
             try:
