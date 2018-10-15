@@ -53,6 +53,22 @@
     <div class="form-group">
         <label for="id_avatar">Аватар:</label><input class="form-control-file" type="file" name="avatar" accept="image/*" required="" id="id_avatar">
     </div>
+    <script>
+        $('#id_url').change(function () {
+           var a = $('#id_url').val();
+           a = a.split('&');
+           b = a[0].split('?');
+           var ip = b[1].split('=');
+           var port = a[1].split('=');
+           var secret = a[2].split('=');
+           ip = ip[1];
+           port = port[1];
+           secret = secret[1];
+           $('#id_ip').val(ip);
+           $('#id_port').val(port);
+           $('#id_secret').val(secret);
+        })
+    </script>
             <div class="form-group">
         <label for="id_ip">IP:</label><input class="form-control" type="text" maxlength="200" id="id_ip">
     </div>
