@@ -11,4 +11,4 @@ class ContactForm(forms.Form):
 class AddingProxyForm(ModelForm):
     class Meta:
         model = Proxy
-        fields = ['channel_name', 'nickname', 'description', 'url', 'avatar', 'active']
+        fields = ['channel_name', 'nickname', 'description', 'url', 'avatar', 'active', 'button_url']

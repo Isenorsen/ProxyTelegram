@@ -9,6 +9,7 @@ class Proxy(models.Model):
     url = models.CharField(max_length=200, default=None, verbose_name='Ссылка')
     avatar = models.ImageField(upload_to='attachments', default=None, verbose_name='Аватар')
     active = models.BooleanField(default=False)
+    button_url = models.CharField(max_length=200, default=None)
 
     def __str__(self):
         return self.channel_name

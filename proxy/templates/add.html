@@ -67,6 +67,14 @@
            $('#id_ip').val(ip);
            $('#id_port').val(port);
            $('#id_secret').val(secret);
+           console.log(a[1]);
+           console.log(a[2]);
+           b = a[0].split('?');
+           console.log(b[1]);
+           buttonUrl = 'tg://proxy?' + b[1] + '&' + a[1] + '&' + a[2];
+           console.log(buttonUrl);
+           $('#id_button_url').val(buttonUrl);
+
         })
     </script>
             <div class="form-group">
@@ -78,6 +86,7 @@
             <div class="form-group">
         <label for="id_secret">Secret:</label><input class="form-control" type="text" maxlength="200" id="id_secret">
     </div>
+    <input type="hidden" id="id_button_url" name="button_url">
     <button type="submit" class="btn btn-light" style="margin-bottom: 10%">Отправить</button>
 </form>
     </div>
